@@ -1,26 +1,72 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import react, { CSSProperties, useState } from "react";
+import { 
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link 
+} from "react-router-dom";
+import { Create } from "./screens/Create";
+import { Home } from "./screens/Home";
+
+
+
 
 function App() {
+
+    
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+      
+      <div>
+        <nav style={styles.nav}>
+          <h2>Links App</h2>
+        </nav>
+
+
+
+        <div className="container">
+
+          <Home/>
+
+        </div>
+
+
+      </div>
+      
+    </Router>
+
   );
 }
+
+interface StylesProps{
+  nav:CSSProperties
+  btn:CSSProperties
+}
+const styles:StylesProps = {
+  nav:{
+    background:'#333',
+    padding:10,
+    color:'white'
+  }, 
+  btn:{
+      position:'absolute',
+      display:'flex',
+      width:35,
+      height:35,
+      background:'#0d6efd',
+      color:'white',
+      border:'none',
+      padding:10,
+      alignItems:'center',
+      justifyContent:'center',
+      borderRadius:100,
+      boxShadow:'0 0 6px gray',
+      bottom:25,
+      right:25
+  }
+}
+
 
 export default App;
